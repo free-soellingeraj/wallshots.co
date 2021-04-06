@@ -73,6 +73,7 @@ export const IndexPageTemplate = ({
                     <h3 className="has-text-weight-semibold is-size-2">
                       {heading}
                     </h3>
+	            <iframe width="560" height="315" src="https://www.youtube.com/embed/xYviuIdd8Oc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                     <p>{description}</p>
                     <form 
 		      action="https://formspree.io/f/mayayjvn"
