@@ -11,9 +11,7 @@ export const IndexPageTemplate = ({
   title,
   heading,
   subheading,
-  mainpitch,
   description,
-  intro,
 }) => (
   <div>
     <div
@@ -40,8 +38,8 @@ export const IndexPageTemplate = ({
           className="has-text-weight-bold is-size-3-mobile is-size-2-tablet is-size-1-widescreen"
           style={{
             boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
+              'rgb(153, 153, 102) 0.5rem 0px 0px, rgb(153, 153, 102) -0.5rem 0px 0px',
+            backgroundColor: 'rgb(153, 153, 102)',
             color: 'white',
             lineHeight: '1',
             padding: '0.25em',
@@ -53,8 +51,8 @@ export const IndexPageTemplate = ({
           className="has-text-weight-bold is-size-5-mobile is-size-5-tablet is-size-4-widescreen"
           style={{
             boxShadow:
-              'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
-            backgroundColor: 'rgb(255, 68, 0)',
+              'rgb(153, 153, 0) 0.5rem 0px 0px, rgb(153, 153, 0) -0.5rem 0px 0px',
+            backgroundColor: 'rgb(153, 153, 0)',
             color: 'white',
             lineHeight: '1',
             padding: '0.25em',
@@ -70,39 +68,49 @@ export const IndexPageTemplate = ({
           <div className="columns">
             <div className="column is-10 is-offset-1">
               <div className="content">
-                <div className="content">
-                  <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
-                  </div>
-                  <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
-                  </div>
-                </div>
                 <div className="columns">
                   <div className="column is-12">
                     <h3 className="has-text-weight-semibold is-size-2">
                       {heading}
                     </h3>
                     <p>{description}</p>
-                  </div>
-                </div>
-                <Features gridItems={intro.blurbs} />
-                <div className="columns">
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/products">
-                      See all products
-                    </Link>
-                  </div>
-                </div>
-                <div className="column is-12">
-                  <h3 className="has-text-weight-semibold is-size-2">
-                    Latest stories
-                  </h3>
-                  <BlogRoll />
-                  <div className="column is-12 has-text-centered">
-                    <Link className="btn" to="/blog">
-                      Read more
-                    </Link>
+                    <form 
+		      action="https://formspree.io/f/mayayjvn"
+	              method="POST"
+	              >
+                      <p> 
+                        <label>Your Name: <input type="text" name="name" /></label>   
+                      </p>
+                      <p> 
+                        <label>Your Email: <input type="email" name="email" /></label>
+                      </p>
+                      <p>What are you collecting</p>
+			<div name="checkbox-collection">
+                          <div><label
+                              >NBA Top Shots    
+                              <input type="checkbox" id="TS" name="TS" />
+                          </label></div>
+                          <div><label
+                              >CryptoKitties
+                              <input type="checkbox" id="CK" name="CK" />
+                          </label></div>
+                          <div><label
+                              >CryptoPunks
+                              <input type="checkbox" id="CP" name="CP" />
+                          </label></div>
+                          <div><label
+                              >Fine Art NFTs
+                              <input type="checkbox" id="FA" name="FA" />
+                          </label></div>
+			  <div><label
+                              >Other
+                              <input type="checkbox" id="NA" name="NA" />
+                          </label></div>
+                      </div>
+                      <p> 
+                        <button type="submit">Send</button>
+                      </p>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -119,11 +127,7 @@ IndexPageTemplate.propTypes = {
   title: PropTypes.string,
   heading: PropTypes.string,
   subheading: PropTypes.string,
-  mainpitch: PropTypes.object,
   description: PropTypes.string,
-  intro: PropTypes.shape({
-    blurbs: PropTypes.array,
-  }),
 }
 
 const IndexPage = ({ data }) => {
@@ -136,9 +140,7 @@ const IndexPage = ({ data }) => {
         title={frontmatter.title}
         heading={frontmatter.heading}
         subheading={frontmatter.subheading}
-        mainpitch={frontmatter.mainpitch}
         description={frontmatter.description}
-        intro={frontmatter.intro}
       />
     </Layout>
   )
@@ -168,25 +170,7 @@ export const pageQuery = graphql`
         }
         heading
         subheading
-        mainpitch {
-          title
-          description
-        }
         description
-        intro {
-          blurbs {
-            image {
-              childImageSharp {
-                fluid(maxWidth: 240, quality: 64) {
-                  ...GatsbyImageSharpFluid
-                }
-              }
-            }
-            text
-          }
-          heading
-          description
-        }
       }
     }
   }
