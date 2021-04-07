@@ -5,6 +5,15 @@ module.exports = {
       'Helping collectors of digital goods to promote them in the digital world.',
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-google-gtag`,
+      options: {
+        // You can add multiple tracking ids and a pageview event will be fired for all of them.
+        trackingIds: [
+          "G-1PEDNHM7BX", // Google Analytics / GA
+        ],
+      },
+    },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
     {
