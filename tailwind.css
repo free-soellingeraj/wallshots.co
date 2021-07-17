@@ -1,0 +1,26 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@keyframes slide-in {
+  from {
+    transform: translateY(-150px);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slide-in 300ms ease-in;
+}
+
+.modal-max-w {
+  max-width: 340px;
+}
+
+@media (min-width: 768px) {
+  .modal-max-w {
+    max-width: 360px;
+  }
+}

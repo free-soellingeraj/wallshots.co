@@ -1,0 +1,249 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WallShots.co</title>
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="icon" href="/favicon.png" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body class="flex flex-col text-white">
+    <!-- background video -->
+    <video
+      autoplay
+      muted
+      loop
+      class="absolute h-screen w-full top-0 left-0 object-cover"
+      style="z-index: -10"
+    >
+      <!-- <source src="./demo.mp4" /> -->
+      <source
+        src="https://wallshots-growth.s3.amazonaws.com/landing-page/demo.mp4"
+      />
+    </video>
+
+    <!-- video overlay -->
+    <div
+      class="w-full h-screen absolute bg-black opacity-40"
+      style="z-index: -5"
+    ></div>
+
+    <!-- modal -->
+
+    <div
+      id="sign-up-form-modal"
+      class="absolute w-full h-screen z-10 items-center justify-center hidden"
+    >
+      <!-- modal overlay -->
+
+      <div
+        class="bg-black bg-opacity-80 absolute w-full h-screen hidden"
+        id="modal-overlay"
+        style="z-index: 20"
+      ></div>
+
+      <!-- form modal -->
+      <div
+        class="
+          w-11/12
+          modal-max-w
+          md:w-2/3
+          2xl:w-1/4
+          bg-white
+          text-black
+          py-6
+          px-4
+          sm:py-8 sm:px-6
+          lg:px-7 lg:pb-10
+          relative
+          z-30
+        "
+        id="sign-up-form-container"
+      >
+        <button class="absolute right-3 top-3 text-lg" id="close-modal-btn">
+          X
+        </button>
+        <h1 class="text-center font-semibold text-2xl mb-4">Sign Up</h1>
+        <form
+          method="POST"
+          class="mb-0"
+          action="https://formspree.io/f/mayayjvn"
+        >
+          <p class="mb-4">
+            <input
+              placeholder="Full Name"
+              type="text"
+              id="name"
+              name="name"
+              class="
+                bg-gray-200
+                focus:outline-none
+                w-full
+                rounded-lg
+                py-3
+                px-4
+                placeholder-gray-800
+                border-2
+                focus:border-gray-800
+              "
+            />
+          </p>
+
+          <p class="mb-4">
+            <input
+              placeholder="Email"
+              type="email"
+              name="email"
+              id="email"
+              class="
+                bg-gray-200
+                focus:outline-none
+                w-full
+                rounded-lg
+                py-3
+                px-4
+                placeholder-gray-800
+                border-2
+                focus:border-gray-800
+              "
+            />
+          </p>
+
+          <p class="mb-2 font-medium">What are you collecting</p>
+          <div class="mb-4 grid grid-cols-2 gap-y-2" name="checkbox-collection">
+            <div>
+              <label class="mr-1">NBA Top Shots </label>
+              <input type="checkbox" id="TS" name="TS" />
+            </div>
+            <div>
+              <label class="mr-1">CryptoKitties </label>
+              <input type="checkbox" id="CK" name="CK" />
+            </div>
+            <div>
+              <label class="mr-1">CryptoPunks </label>
+              <input type="checkbox" id="CP" name="CP" />
+            </div>
+            <div>
+              <label class="mr-1">Fine Art NFTs </label>
+              <input type="checkbox" id="FA" name="FA" />
+            </div>
+            <div>
+              <label class="mr-1">Other </label>
+              <input type="checkbox" id="NA" name="NA" />
+            </div>
+          </div>
+
+          <button
+            type="submit"
+            class="
+              w-full
+              text-center
+              rounded-md
+              bg-gray-900
+              py-2
+              text-white
+              mb-2
+              sm:mb-0
+            "
+          >
+            Send
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="h-screen flex flex-col">
+      <!-- header -->
+      <header
+        class="
+          flex
+          justify-center
+          py-4
+          md:px-9 md:py-6 md:justify-between
+          xl:py-6 xl:px-12
+          items-center
+        "
+      >
+        <h1
+          class="
+            font-medium
+            text-2xl
+            md:text-3xl
+            hover:opacity-80
+            transition-all
+            cursor-pointer
+          "
+        >
+          WallShots.co
+        </h1>
+
+        <!-- <ul class="flex text-lg">
+        <li class="mr-10 hover:opacity-80 transition-all cursor-pointer">
+          Home
+        </li>
+        <li class="mr-10 cursor-pointer hover:opacity-80 transition-all">
+          About
+        </li>
+        <li class="mr-10 cursor-pointer hover:opacity-80 transition-all">
+          Work
+        </li>
+        <li class="mr-10 cursor-pointer hover:opacity-80 transition-all">
+          Contact
+        </li>
+      </ul> -->
+      </header>
+
+      <!-- body -->
+
+      <section
+        class="flex-1 flex flex-col items-center justify-center text-center"
+      >
+        <p
+          class="
+            font-light
+            text-xl
+            tracking-wider
+            mb-5
+            w-80
+            sm:w-auto sm:mb-8
+            md:text-2xl
+            lg:text-3xl
+          "
+        >
+          Protect and promote your collections
+        </p>
+        <button
+          id="sign-up-button"
+          class="
+            bg-blue-500
+            py-1.5
+            px-4
+            sm:py-2 sm:px-5
+            hover:bg-blue-600
+            font-medium
+            md:text-lg
+          "
+        >
+          Sign up
+        </button>
+      </section>
+    </div>
+
+    <!-- footer -->
+    <footer class="bg-black flex justify-center py-3">
+      <h1
+        class="
+          font-medium
+          text-lg
+          md:text-2xl
+          hover:opacity-80
+          transition-all
+          cursor-pointer
+        "
+      >
+        WallShots.co
+      </h1>
+    </footer>
+  </body>
+</html>
